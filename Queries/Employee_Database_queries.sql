@@ -1,4 +1,4 @@
--- Deliverable 1: 
+-- Analysis part 1: 
 --A. retirement_titles table query for employees who are born between January 1, 1952 and December 1955
 
 SELECT e.emp_no, e.first_name, e.last_name,t.title,t.from_date,t.to_date
@@ -24,7 +24,7 @@ GROUP BY title
 ORDER BY COUNT DESC;
 
 
--- Deliverable 2
+-- Analysis part 2
 -- mentorship_elgibility table that holds the current employees who were born between January1,1965 and December 31, 1965
 SELECT DISTINCT ON (e.emp_no) e.emp_no,e.first_name, e.last_name, 
 e.birth_date, d.from_date,d.to_date,t.title
@@ -35,7 +35,7 @@ INNER JOIN titles as t ON (e.emp_no = t.emp_no)
 WHERE d.to_date='9999-01-01' AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')  
 ORDER BY e.emp_no;
 
---Deliverabel 3
+--Analysis part 3
 -- Total number of employees retiring were obtained in ADDITIONAL table retiring_employees, and results 
 --stored in retiring_employees.csv because unique_titles did not filter out the employees who already retired.
 SELECT DISTINCT ON (r.emp_no) r.emp_no, r.first_name, r.last_name, r.title, r.to_date
